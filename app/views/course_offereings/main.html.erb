@@ -1,0 +1,49 @@
+<div class="center hero-unit">
+  <%= form_tag(filter_path) do%>
+
+<h1>Courses</h1>
+
+<table>
+  <thead>
+    <tr>
+    	<th>Course Number<br><br><%=collection_select(:course_offering, :course_number, Course.all, 
+      :course_number, :course_number, prompt: true)%></th>
+      <th>Course Name<br><br><%=collection_select(:course_offering, :course_name, Course.all, 
+      :course_name, :course_name, prompt: true)%></th>
+      <th>Semester Offered<br><br><%=collection_select(:course_offering, :semester, CourseOffering.unique_semester, :semester, :semester, prompt: true)%></th>
+      <th>Year<br><br><br><%=collection_select(:course_offering, :year, CourseOffering.unique_year, 
+      :year, :year, prompt: true)%></th>
+      <th>Start time<br><br><%=collection_select(:course_offering, :start_time, CourseOffering.unique_start, 
+      :start_time_string, :start_time_string, prompt: true)%></th>
+      <th>End time<br><br><br><%=collection_select(:course_offering, :end_time, CourseOffering.unique_end, 
+      :end_time_string, :end_time_string, prompt: true)%></th>
+      <th>Faculty Name<br><br><%=collection_select(:course_offering, :last_name, Faculty.all, 
+      :full_name, :full_name, prompt: true)%></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+    </thead>
+
+  <tbody>
+    <% @course_offerings.each do |course_offering| %>
+      <tr>
+        <td><%= course_offering.course.course_number %></td>
+        <td><%= course_offering.course.course_name %></td>
+        <td><%= course_offering.semester %></td>
+        <td><%= course_offering.year %></td>
+        <td><%= course_offering.start_time_string %></td>
+        <td><%= course_offering.end_time_string %></td>
+        <td><%= course_offering.faculty.full_name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br />
+
+<%= submit_tag 'Update', class: "btn btn-primary" %>
+<% end %>
+<%= button_to "Reset", main_path, class: "btn btn-primary", :method => :get %> 
+
+</div>

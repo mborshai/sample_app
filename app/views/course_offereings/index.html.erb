@@ -1,0 +1,39 @@
+<h1>Listing course_offereings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Faculty</th>
+      <th>Course</th>
+      <th>Semester</th>
+      <th>Year</th>
+      <th>Start time</th>
+      <th>End time</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @course_offereings.each do |course_offereing| %>
+      <tr>
+        <td><%= course_offereing.id %></td>
+        <td><%= course_offereing.faculty_id %></td>
+        <td><%= course_offereing.course_id %></td>
+        <td><%= course_offereing.semester %></td>
+        <td><%= course_offereing.year %></td>
+        <td><%= course_offereing.start_time %></td>
+        <td><%= course_offereing.end_time %></td>
+        <td><%= link_to 'Show', course_offereing %></td>
+        <td><%= link_to 'Edit', edit_course_offereing_path(course_offereing) %></td>
+        <td><%= link_to 'Destroy', course_offereing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Course offereing', new_course_offereing_path %>

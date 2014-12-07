@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Id:</strong>
+  <%= @course_offereing.id %>
+</p>
+
+<p>
+  <strong>Faculty:</strong>
+  <%= @course_offereing.faculty_id %>
+</p>
+
+<p>
+  <strong>Course:</strong>
+  <%= @course_offereing.course_id %>
+</p>
+
+<p>
+  <strong>Semester:</strong>
+  <%= @course_offereing.semester %>
+</p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @course_offereing.year %>
+</p>
+
+<p>
+  <strong>Start time:</strong>
+  <%= @course_offereing.start_time %>
+</p>
+
+<p>
+  <strong>End time:</strong>
+  <%= @course_offereing.end_time %>
+</p>
+
+<%= link_to 'Edit', edit_course_offereing_path(@course_offereing) %> |
+<%= link_to 'Back', course_offereings_path %>

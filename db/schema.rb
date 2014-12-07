@@ -11,7 +11,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141205061052) do
+ActiveRecord::Schema.define(version: 20141205195144) do
+
+  create_table "course_offereings", force: true do |t|
+    t.integer  "faculty_id"
+    t.integer  "course_id"
+    t.string   "semester"
+    t.integer  "year"
+    t.integer  "start_time"
+    t.integer  "end_time"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "courses", force: true do |t|
+    t.integer  "course_number"
+    t.string   "course_name"
+    t.string   "course_description"
+    t.integer  "credit_hours"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "faculties", force: true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "department"
+    t.string   "rank"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "name"
@@ -20,6 +49,7 @@ ActiveRecord::Schema.define(version: 20141205061052) do
     t.datetime "updated_at"
     t.string   "password_digest"
     t.string   "remember_token"
+    t.boolean  "admin",           default: false
   end
 
   add_index "users", ["remember_token"], name: "index_users_on_remember_token"
