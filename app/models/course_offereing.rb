@@ -45,5 +45,6 @@ def end_time_string
 	end_time.strftime('%H:%H') if !end_time.nill?
 end
 
+
 end
 
